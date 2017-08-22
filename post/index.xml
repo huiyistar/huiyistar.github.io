@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 始末</title>
+    <link>https://huiyistar.github.io/post/</link>
+    <description>Recent content in Posts on 始末</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 20 Aug 2017 00:41:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://huiyistar.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Two</title>
+      <link>https://huiyistar.github.io/post/first/</link>
+      <pubDate>Sun, 20 Aug 2017 00:41:39 +0800</pubDate>
+      
+      <guid>https://huiyistar.github.io/post/first/</guid>
+      <description>h1 h2 h3 h4 h5 h6 public class Test{ public static void main(String[] args){ system.out.println(&amp;quot;hello world&amp;quot;); } } 第一章 阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读 阅</description>
+    </item>
+    
+  </channel>
+</rss>
