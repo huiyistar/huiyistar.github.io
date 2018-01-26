@@ -2,24 +2,239 @@
 <search>
     
      <entry>
-        <title>Two</title>
-        <url>https://huiyistar.github.io/post/first/</url>
+        <title></title>
+        <url>https://huiyistar.github.io/post/2/</url>
         <categories>
-          <category>test</category>
+          
         </categories>
         <tags>
-          <tag>test</tag>
+          
         </tags>
-        <content type="html">  h1 h2 h3 h4 h5 h6 public class Test{ public static void main(String[] args){ system.out.println(&amp;quot;hello world&amp;quot;); } }  第一章 阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读
-阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读
-第二章  就是这样的  风扇 水电费 三分大赛 是是发  速度 速度    1.第三方
-2.水电费
-3.风扇
-single asterisks
-single asterisks
-single asterisks
-强调
-</content>
+        <content type="html"> ###描述Cookie和Session的作用，区别各自的应用范围，Session的工作原理
+cookie机制采用的是在客户端保持状态的方案，也是实现Session的一种方式； sessio机制采用的是在服务器端保持状态的方案,session是保存在服务器端的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库或文件中。 许多个性化服务的网站，都是利用Cookie来辨认使用者，以方便送出为使用者送出量身定做的内容。session的典型场景如购物车 Cookie的内容主要包括：名字、值、过期时间、路径和域。路径和域一起构成Cookie的作用范围，若不设置过期时间，则表示这个Cookie的生命期在浏览器会话期间， 关闭浏览器，cookie就消失了。 session机制是一种服务器端的机制，当程序需要为客户端某个请求创建一个session时，服务器会首先检查这个客户端请求是否包含了一个session标识(简称session id) 如果已包含，说明以前已为这个客户端创建了session，服务器就会按照这个session id把这个session检索出来使用；如果不包含，则会为此客户端创建一个session并且生成一个与此session相关联的session id。 session和cookie的区别： 1.session数据保存在服务器，cookie数据保存在客户端 2.session会在一定时间保存在服务器(默认为30分钟)，随着访问增多，会占用服务器的内存， 建议： 可将登录等重要信息存放在session，其他信息如需保留可存放在cookie  ###简述ajax工作原理，怎样实现ajax跨域？
+ajax简单来说是通过XMLHttpRequest对象来向服务器发送异步请求，从服务器获得数据，进行用JavaScript来操作DOM来实现局部页面更新,即客户端不需要等待服务器的响应，从而实现异步请求，局部刷新
+ function sendMessage(va){ //(1)创建xmlhttp对象 var xmlhttp; //判断浏览器的类型,处理兼容性问题 if(window.XMLHttpRequest){ //非IE浏览器创建XMLHttpRequest对象(firefox 、safira、chrome 、IE7&#43;) xmlhttp = new XMLHttpRequest(); }else{ //IE 5\6 xmlhttp = new ActiveObjectX(&amp;quot;Micorsoft.XMLHTTP&amp;quot;); } //(2)发送请求 var url = &amp;quot;/JavaWeb11_ajax/LoginServlet&amp;quot;; /*第一个参数：请求类型 第二个参数：请求服务器地址， 第三个参数：采用同步还是异步的方式请求 true异步*/ xmlhttp.open(&amp;quot;post&amp;quot;,url,true); /*设置请求头*/ xmlhttp.setRequestHeader(&amp;quot;Content-Type&amp;quot;,&amp;quot;application/x-www-form-urlencoded;charset=utf-8&amp;quot;); /*发送请求到服务器，可以传递数据*/ xmlhttp.send(&amp;quot;username=&amp;quot;&#43;va&#43;&amp;quot;&amp;amp;pwd=123&amp;quot;); //(3)接受服务器响应，ajax采用事件的方式，不断监控状态码。当状态码为200的时候。才能处理响应 xmlhttp.onreadystatechange = function(){ //除了判断状态码为200 ，还要判断当前对象的状态==4才表示对象准备就绪。就获取。 if(xmlhttp.status==200 &amp;amp;&amp;amp; xmlhttp.readyState ==4){ //通过ajax提供的方法获取到服务器传递回来的内容,json字符串 var jsonStr = xmlhttp.responseText; console.info(jsonStr); //将字符串转换为json对象 var jsonObj = JSON.parse(jsonStr); console.info(jsonObj); } }; }  jQuery jsonp方式可支持ajax跨域请求
+###简述Spring的事务传播行为和隔离级别
+事务的概念：
+事务必须服从ACID原则。ACID指的是原子性（atomicity）、一致性（consistency）、隔离性（isolation）和持久性（durability）。
+通俗理解，事务其实就是一系列指令的集合。
+ 原子性：操作这些指令时，要么全部执行成功，要么全部不执行。只要其中一个指令执行失败，所有的指令都执行失败，数据进行回滚，回到执行指令前的数据状态。
+ 一致性：事务的执行使数据从一个状态转换为另一个状态，但是对于整个数据的完整性保持稳定。
+ 隔离性：在该事务执行的过程中，无论发生的任何数据的改变都应该只存在于该事务之中，对外界不存在任何影响。只有在事务确定正确提交之后，才会显示该事务对数据的改变。其他事务才能获取到这些改变后的数据。
+ 持久性：当事务正确完成后，它对于数据的改变是永久性的。
+  事务传播行为有七种：
+ PROPAGATION_REQUIRED&amp;ndash;支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。 PROPAGATION_SUPPORTS&amp;ndash;支持当前事务，如果当前没有事务，就以非事务方式执行。 PROPAGATION_MANDATORY&amp;ndash;支持当前事务，如果当前没有事务，就抛出异常。 PROPAGATION_ REQUIRES_NEW&amp;ndash;新建事务，如果当前存在事务，把当前事务挂起。 PROPAGATION_ NOT_ SUPPORTED&amp;ndash;以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。 PROPAGATION_NEVER&amp;ndash;以非事务方式执行，如果当前存在事务，则抛出异常。 PROPAGATION_ NESTED&amp;ndash; 理解Nested的关键是savepoint。他与PROPAGATION_ REQUIRES_ NEW的区别是，PROPAGATION_ REQUIRES_NEW另起一个事务，将会与他的父事务相互独立，而Nested的事务和他的父事务是相依的，他的提交是要等和他的父事务一块提交的。也就是说，如果父事务最后回滚，他也要回滚的。 而Nested事务的好处是他有一个savepoint。  四种隔离级别：
+ ISOLATION_DEFAULT： 使用数据库默认的隔离级别。
+ ISOLATION_ READ_UNCOMMITTED： 允许读取改变了的还未提交的数据，可能导致脏读、不可重复读和幻读。
+ ISOLATION_READ COMMITTED： 允许并发事务提交之后读取，可以避免脏读，可能导致重复读和幻读。
+ ISOLATION_ REPEATABLE_READ： 对相同字段的多次读取结果一致，可导致幻读。
+ ISOLATION_SERIALIZABLE： 完全服从ACID的原则，确保不发生脏读、不可重复读和幻读。
+  可以根据自己的系统对数据的要求采取适应的隔离级别，因为隔离牵涉到锁定数据库中的记录，对数据正性要求越严格，并发的性能也越差。
+ 脏读(Dirty read)： 脏读发生在一个事务读取了被另一个事务改写但还未提交的数据时。如果这些改变在稍后被回滚，那么之前的事务读取的到数据就是无效的。
+ 不可重复读(Nonrepeatable read)： 不可重复读发生在一个事务执行相同的查询两次或两次以上，但每一次的查询结果不同时。这通常是由于另一个并发的事务在两次查询之间更新了数据。
+ 幻读(Phantom read)： 幻读是一个事务读取几行记录后，另一个事务插入了一些记录，幻读就发生了。在后来的查询中第一个事务就会发现有一些原来没有的额外的记录。
+  ###请比较hibernate中的悲观锁和乐观锁(即优缺点)
+悲观锁：
+即某事务在更新数据的过程中将数据锁定，其他任何事务都不能读取或修改，必须修改完成后才能访问数据(类似于Java的线程同步机制)
+ 优点:保证了数据的完整性和一致性
+ 缺点：具有排他性，通常依赖于数据库机制，导致效率较低，且使用了悲观锁那么延迟加载就无效了
+悲观锁是数据库本身已拥有的一种机制，跟Hibernate框架无关，只需打开即可。  使用场景：一般适合短事务处理(指适用于用时较短的事务处理)
+ 使用：如果需要使用悲观锁，通常采用数据库的for update语句，Hibernate使用load()方法设置悲观锁
+  乐观锁：
+乐观锁并不是一种锁机制，而是一种冲突检测机制。
+ 特点：并发性好，事务修改数据时，其他事务仍可修改数据 使用：常用的是版本方式(即每个数据表中有一个版本字段version，某一个事务更新后版本号&#43;1，另一个事务更新后再&#43;1，当事务发现数据库当前版本号与读取数据时版本号不一致(等于或小于数据库当前版本号)则不能更新数据。 开启乐观锁属性：optimistic-lock=&amp;ldquo;version&amp;rdquo;  ###Java线程中sleep()方法和wait()的区别
+ sleep()属于Thread类的方法，而wait()数据Object类的方法 在调用sleep()方法时，线程不会释放对象锁；调用wait()方法时，线程会放弃对象锁，进入等待此对象的等待锁定池，只有针对此对象调用notify()方法后本线程才进入对象锁定池准备，否则该线程将会一直被挂起  ###描述AOP编程
+AOP为面向切面编程，是OOP的有效延续和补充，也是Spring框架的一个重要的内容，是函数式编程的一种衍生范型，AOP针对业务处理过程中的切面进行提取，它所面对的是处理过程中的某个步骤或阶段，以获得逻辑过程中各部分之间低耦合性的效果，提高了程序的可重用性，提高了开发效率。
+###线程和进程的区别？
+每个运行中的程序就是一个进程，当一个程序运行时内部可能会包含多个顺序执行流，每个顺序执行流就是一个线程
+###Mysql和Oracle的分页查询语句 每页显示10行
+Mysql:select * from table_name limit 0, 10
+Oracle:SELECT * FROM
+(
+SELECT A.*, ROWNUM RN
+FROM (SELECT * FROM TABLE_NAME) A
+WHERE ROWNUM &amp;lt;= 10
+)
+WHERE RN &amp;gt;= 1
+###ClassLoader有几种加载方式
+ BootstrapClassLoader引导类加载器
+最顶层的加载类，主要加载核心类库，%JRE_HOME%\lib下的rt.jar、resources.jar、charsets.jar和class等
+ ExtensionClassLoader扩展类加载器
+加载目录%JRE_HOME%\lib\ext目录下的jar包和class文件
+ AppClassLoader系统类加载器
+加载当前应用的classpath的所有类。
+  ###怎样通过反射调用一个类的方法
+@Test public void newInstance() throws Exception { String className = &amp;quot;com.shihan.reflection.Person&amp;quot;; Class class1 = Class.forName(className); /*class1 = Person.class;*/ //利用Class对象的newInstance()方法来创建类的实例,创建实例对象时实际调用的是无参构造器 Object object = class1.newInstance(); Method method = class1.getMethod(&amp;quot;setName&amp;quot;, String.class); Method method2 = class1.getMethod(&amp;quot;getName&amp;quot;); method.invoke(object, &amp;quot;石晗&amp;quot;); String name = (String) method2.invoke(object); System.out.println(name); System.out.println(object); }  ###说明一下线程间的通信方式
+ 同步(共享内存)
+这种方式，本质上就是“共享内存”式的通信。多个线程需要访问同一个共享变量，谁拿到了锁（获得了访问权限），谁就可以执行。
+ while轮询方式
+这种方式会浪费CPU资源,其中一个线程只是在测试某个条件是否成立
+ wait/notify机制
+这种方式提高了CPU的利用率
+ 管道通信
+就是使用java.io.PipedInputStream 和 java.io.PipedOutputStream进行通信
+  ###描述（&amp;amp;，|，^）与（&amp;amp;&amp;amp;，||）的区别 - &amp;amp;(逻辑与)和&amp;amp;&amp;amp;(短路与)的区别：区别是&amp;amp;&amp;amp;只要第一个条件不满足，后面条件就不再判断。而&amp;amp;要对所有的条件都进行判断。
+ |(逻辑或)和||(短路或)的区别：区别是||只要满足第一个条件，后面的条件就不再判断，而|要对所有的条件进行判断。  ###HashMap和HashTable的区别
+ hashMap为线程不安全的，HashTable为线程安全的 HashMap的key、value值均可为null，HashTable的key、value值均不可为null  ###Object类有哪些方法，作用是什么
+ toString()
+返回该对象的字符串表示  notify()
+唤醒在此对象监视器上等待的单个线程  wait()
+调用wait()方法时，线程会放弃对象锁，进入等待此对象的等待锁定池  notifyAll()
+唤醒在此对象监视器上等待的所有线程  clone()
+用于克隆当前对象，制作本地对象  equals()
+ hashCode()
+用于返回对象在内存中的地址  finalize()
+这是GC清理对象之前所调用的清理方法，是回调方法  getClass()
+返回当前对象的Class类的对象引用   ###如何读取eclipse中src目录下的文件
+ 方式一：Inputstream in = this.getClass().getClassLoader().getResourceAsStream(&amp;ldquo;test.properties&amp;rdquo;); 方式二：Inputstream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(&amp;ldquo;test.properties&amp;rdquo;);  ###有两个List集合怎么取无重复并集
+ @Test public void listTest() { List&amp;lt;String&amp;gt; list1 = new ArrayList&amp;lt;String&amp;gt;(); List&amp;lt;String&amp;gt; list2 = new ArrayList&amp;lt;String&amp;gt;(); list1.add(&amp;quot;aaaa&amp;quot;); list1.add(&amp;quot;bbbb&amp;quot;); list1.add(&amp;quot;cccc&amp;quot;); list2.add(&amp;quot;dddd&amp;quot;); list2.add(&amp;quot;bbbb&amp;quot;); /*list1.addAll(list2); System.out.println(list1);//并集[aaaa, bbbb, cccc, dddd, bbbb] /*list1.retainAll(list2);//交集 System.out.println(list1);//[bbbb]交集 /*list1.removeAll(list2);//差集 System.out.println(list1);//差集[aaaa, cccc] /*list1.removeAll(list2); list1.addAll(list2); System.out.println(list1);//无重复并集[aaaa, cccc, dddd, bbbb]*/ }  ###将系统时间转换为如下2017/09/01
+ @Test public void Datetest() { long currentTime = System.currentTimeMillis(); Date date = new Date(currentTime); SimpleDateFormat dateFormat = new SimpleDateFormat(&amp;quot;yyyy/MM/dd HH:mm:ss&amp;quot;); String currentDate = dateFormat.format(date); System.out.println(currentDate); System.out.println(date.toLocaleString());//等同于yyyy-MM-dd HH:mm:ss }  ###Spring中IOC和DI的区别以及关系是什么，AOP是怎么实现的?
+IOC控制反转是Spring容器的内核，Spring的AOP、声明式事务都是通过控制反转实现的，控制反转就是应用本身不负责对象的创建和管理，这些交由外部容器负责控制业务对象的依赖关系，进而降低了业务对象之间的依赖程度；而IOC的一个重点是在系统运行中，动态的向一个对象提供它所需要的其他对象，这一点是通过DI依赖注入实现的，依赖注入是组装应用对象的一种方式。
+总而言之，实现IOC来管理Bean的生命周期，实现DI来管理Bean与Bean之间的依赖关系
+###Struts2中的拦截器怎么配置?
+ &amp;lt;!-- 配置Struts2的前端控制器StrutsPrepareAndExecuteFilter --&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt; &amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&amp;lt;/filter-class&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;filter-mapping&amp;gt; &amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt; &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-p****attern&amp;gt; &amp;lt;/filter-mapping&amp;gt;  ###Struts2中的action是单例还是多例，为什么?
+是多例的，因为首先从数据的安全性上来考虑，如果Action是单例的，那么是多线程的下的并发性访问的情况下，数据可能出现混乱  ###hibernate的缓存原理是什么，延迟加载原理是什么?
+Hibernate包括两个级别的缓存：
+ Session级别的一级缓存(默认开启)
+Session级别的一级缓存用于保存持久化实体、修改持久化实体时，Session并不会立即把这种改变flush 到数据库，而是缓存在当前Session的一级缓存中，除非显式调用flush方法，或程序关闭Session时 才会把这些改变一次性地flush到底层数据库。通过Session缓存机制，可以减少与数据库的交互 ，从而提高数据库的访问性能  SessionFactory级别的二级缓存(默认关闭)
+SessionFactory级别的二级缓存是全局性的，应用的所有Session都共享这个二级缓存。当程序开放 次缓存时，当Session需要获取数据时，Session将会优先从二级缓存获取。   load方法:用于加载一个持久化实例,即根据主键从数据库表中加载一条新纪录。如果没有匹配的数据库记录，load方法将会抛出异常。如果在类映射文件中指定了延迟加载(Hibernate默认延迟加载)，则load方法会返回一个未初始化的代理对象，该代理对象并没有加载数据记录，直到程序调用该代理对象的某个方法时，Hibernate才真正去访问数据库加载数据记录
+###Map集合的key为什么不能重复？
+他们的底层数据结构的实现是：维护了一张 HashTable 。容器中的元素全部存储在Hashtable 中。他们再添加元素的时候,是如何判断是否存在有重复元素的呢？ 每一个被添加的元素都有一个 hashCode(哈希值)，他们先比较哈希值，是否相同？ 不相同的元素，添加进入 HashTable. 如果hashCode相同的话， 再去比较 equals()方法，如果也相同的话，JVM就认为数据已经存在了，就不会添加数据！
+###hibernate的主键生成策略有哪些?
+ assigned
+主键由外部程序负责生成，在 save() 之前必须指定一个。Hibernate不负责维护主键生成。
+特点：可以跨数据库，人为控制主键生成，应尽量避免。
+ increment
+由Hibernate从数据库中取出主键的最大值（每个session只取1次），以该值为基础，每次增量为1，在内存中生成主键，不依赖于底层的数据库，因此可以跨数据库。
+特点：跨数据库，不适合多进程并发更新数据库，适合单一进程访问数据库，不能用于群集环境。
+ hilo
+特点：跨数据库，hilo算法生成的标志只能在一个数据库中保证唯一。
+ seqhilo
+与hilo类似，通过hi/lo算法实现的主键生成机制，只是将hilo中的数据表换成了序列sequence，需要数据库中先创建sequence，适用于支持sequence的数据库，如Oracle。
+特点：与hilo类似，只能在支持序列的数据库中使用(不支持跨数据库)。
+ sequence
+采用数据库提供的sequence机制生成主键，需要数据库支持sequence。如oralce、DB、SAP DB、PostgerSQL、McKoi中的sequence。MySQL这种不支持sequence的数据库则不行（可以使用identity）。
+特点：只能在支持序列的数据库中使用，如Oracle。
+ identify
+dentity由底层数据库生成标识符。identity是由数据库自己生成的，但这个主键必须设置为自增长，使用identity的前提条件是底层数据库支持自动增长字段类型，如DB2、SQL Server、MySQL、Sybase和HypersonicSQL等，Oracle这类没有自增字段的则不支持。
+特点：只能用在支持自动增长的字段数据库中使用，如MySQL。
+ native
+native由hibernate根据使用的数据库自行判断采用identity、hilo、sequence其中一种作为主键生成方式，灵活性很强。如果能支持identity则使用identity，如果支持sequence则使用sequence。
+特点：根据数据库自动选择，项目中如果用到多个数据库时，可以使用这种方式，使用时需要设置表的自增字段或建立序列，建立表等。
+ uuid(Universally Unique Identifier)
+特点：uuid长度大，占用空间大，跨数据库，不用访问数据库就生成主键值，所以效率高且能保证唯一性，移植非常方便，推荐使用。
+ guid(Globally Unique Identifier)
+特点：长度因数据库不同而不同，需要数据库支持查询uuid，生成时需要查询数据库，效率没有uuid高，推荐使用uuid。
+ foreign
+使用另外一个相关联的对象的主键作为该对象主键。主要用于一对一关系中。
+特点：很少使用，大多用在一对一关系中。
+ select
+使用触发器生成主键，主要用于早期的数据库主键生成机制，能用到的地方非常少。
+  ###ArrayList Vector LinkedList的存储性能和特性
+ArrayList是实现了基于动态数组的数据结构，LinkedList基于链表的数据结构。 Vector为线程安全的，其性能要弱于ArrayList和LinkedList ArrayList 是一个可改变大小的数组.当更多的元素加入到ArrayList中时,其大小将会动态地增长.内部的元素可以直接通过get与set方法进行访问,因为**ArrayList本质上就是一个数组**. LinkedList 是一个双链表,在添加和删除元素时具有比ArrayList更好的性能.但在get与set方面弱于ArrayList. 而 LinkedList 还实现了 Queue 接口,该接口比List提供了更多的方法,包括 offer(),peek(),poll()等.  ###写出一个泛型类
+ public class Generic&amp;lt;T&amp;gt; { public void print(T value){ System.out.println(value); } public static void main(String[] args) { Generic&amp;lt;Person&amp;gt; aa = new Generic&amp;lt;&amp;gt;(); aa.print(new Person(2, &amp;quot;aa&amp;quot;)); aa.print(new Student(4, &amp;quot;cccc&amp;quot;, 98)); } }  ###服务器返回一个list到JSP界面，请用EL处理
+ &amp;lt;select name=&amp;quot;areaName&amp;quot; class=&amp;quot;form-control&amp;quot;&amp;gt; &amp;lt;c:forEach items=&amp;quot;${sessionScope.hasGroupAreas }&amp;quot; var=&amp;quot;AreaBean&amp;quot;&amp;gt; &amp;lt;option value=&amp;quot;${AreaBean.id }&amp;quot;&amp;gt; &amp;lt;c:out value=&amp;quot;${AreaBean.areaName }&amp;quot;&amp;gt;&amp;lt;/c:out&amp;gt; &amp;lt;/option&amp;gt; &amp;lt;/c:forEach&amp;gt; &amp;lt;/select&amp;gt;  ###JDBC连接数据库的步骤
+ public class ConnectionFactory { // 加载的驱动程序类名 private static final String DB_DRIVER = &amp;quot;com.mysql.jdbc.Driver&amp;quot;; // 连接数据库的URL private static String DB_URL = &amp;quot;jdbc:mysql://localhost:3306/db_crm?characterEncoding=utf8&amp;quot;;; // 连接数据库的用户名 private static String DB_USER = &amp;quot;root&amp;quot;; // 连接数据库的密码 private static String DB_PASSWORD = &amp;quot;512124&amp;quot;; public static Connection getConnection() { Connection connection = null; try { Class.forName(DB_DRIVER); } catch (ClassNotFoundException e) { System.out.println(e); } try { connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD); } catch (SQLException ce) { System.out.println(ce); } return connection; } }  ###redis技术
+redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)、zset(sorted set &amp;ndash;有序集合)和hash（哈希类型）。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，redis支持各种不同方式的排序。与memcached一样，为了保证效率，数据都是缓存在内存中。区别的是redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并且在此基础上实现了master-slave(主从)同步。
+Redis支持主从同步。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得Redis可执行单层树复制。存盘可以有意无意的对数据进行写操作。由于完全实现了发布/订阅机制，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。同步对读取操作的可扩展性和数据冗余很有帮助。
+###rest(Representional State Transfer 表现层状态转移)技术
+用URL定位资源，用HTTP动词（GET,POST,DELETE,DETC）描述操作。
+Server提供的RESTful API中，URL中只使用名词来指定资源，原则上不使用动词。“资源”是REST架构或者说整个网络处理的核心。
+ GET 用来获取资源， POST 用来新建资源（也可以用于更新资源， PUT 用来更新资源(修改资源)， DELETE 用来删除资源。  ###数据库事务四大特性(ACID):
+ 原子性(Atomicity)：
+事务的原子性指的是，事务中包含的程序作为数据库的逻辑工作单位，它所做的对数据修改操作要么全部执行，要么完全不执行。这种特性称为原子性。
+例如银行取款事务分为2个步骤(1)存折减款(2)提取现金。不可能存折减款，却没有提取现金。2个步骤必须同时完成或者都不完成。
+ 一致性(Consistency)：
+事务的一致性指的是在一个事务执行之前和执行之后数据库都必须处于一致性状态。这种特性称为事务的一致性。假如数据库的状态满足所有的完整性约束，就说该数据库是一致的。
+例如完整性约束a&#43;b=10，一个事务改变了a，那么b也应随之改变。
+ 隔离性(Isolation)：
+隔离性指并发的事务是相互隔离的。即一个事务内部的操作及正在操作的数据必须封锁起来，不被其它企图进行修改的事务看到。假如并发交叉执行的事务没有任何控制，操纵相同的共享对象的多个并发事务的执行可能引起异常情况。
+ 持久性(Durability)：
+持久性意味着当系统或介质发生故障时，确保已提交事务的更新不能丢失。即一旦一个事务提交，DBMS保证它对数据库中数据的改变应该是永久性的，即对已提交事务的更新能恢复。持久性通过数据库备份和恢复来保证。
+  ###Web开发模板引擎
+ jsp FreeMarker Velocity
+Velocity的能力远不止web站点开发这个领域，例如，它可以从模板（template）产生SQL和PostScript、XML，它也可以被当作一个独立工具来产生源代码和报告，或者作为其他系统的集成组件使用。
+  ###sql语句优化方案
+ 应尽量避免使用select * from&amp;hellip;. 最好不要给数据库留NULL，尽可能的使用 NOT NULL填充数据库. 应尽量避免在 where 子句中使用 != 或 &amp;lt;&amp;gt; 操作符，否则将引擎放弃使用索引而进行全表扫描。 应尽量避免在 where 子句中使用 or 来连接条件，如果一个字段有索引，一个字段没有索引，将导致引擎放弃使用索引而进行全表扫描，如：
+select id from t where num=10 or Name = &#39;admin&#39;   可以这样查询：
+ select id from t where num = 10 union all select id from t where Name = &#39;admin&#39;   .in 和 not in 也要慎用，否则会导致全表扫描，如：
+select id from t where num in(1,2,3)   对于连续的数值，能用 between 就不要用 in 了：
+ select id from t where num between 1 and 3  很多时候用 exists 代替 in 是一个好的选择：
+ select num from a where num in(select num from b)  用下面的语句替换：
+ select num from a where exists(select 1 from b where num=a.num)   如果在 where 子句中使用参数，也会导致全表扫描。因为SQL只有在运行时才会解析局部变量，但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然 而，如果在编译时建立访问计划，变量的值还是未知的，因而无法作为索引选择的输入项。如下面语句将进行全表扫描：
+select id from t where num = @num   可以改为强制查询使用索引：
+ select id from t with(index(索引名)) where num = @num  应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描。如：
+ select id from t where num/2 = 100  应改为:
+ select id from t where num = 100*2   应尽量避免在where子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：
+select id from t where substring(name,1,3) = ’abc’ -–name以abc开头的id select id from t where datediff(day,createdate,’2005-11-30′) = 0 -–‘2005-11-30’ --生成的id   应改为:
+ select id from t where name like &#39;abc%&#39; select id from t where createdate &amp;gt;= &#39;2005-11-30&#39; and createdate &amp;lt; &#39;2005-12-1&#39;   .索引并不是越多越好，索引固然可以提高相应的 select 的效率，但同时也降低了insert及update的效率，因为 insert 或 update时有可能会重建索引，所以怎样建索引需要慎重考虑，视具体情况而定。
+ .尽可能的使用 varchar/nvarchar代替char/nchar ，因为首先变长字段存储空间小，可以节省存储空间，其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。
+  ###mysql中truncate、delete和drop的区别
+相同点：
+ truncate和不带where子句的delete、以及drop都会删除表内的数据。
+ drop、truncate都是DDL语句(数据定义语言),执行后会自动提交。
+  不同点：
+ truncate 和 delete 只删除数据不删除表的结构(定义) drop 语句将删除表的结构被依赖的约束(constrain)、触发器(trigger)、索引(index)；依赖于该表的存储过程/函数将保留,但是变为 invalid 状态。
+ delete 语句是数据库操作语言(dml)，这个操作会放到 rollback segement 中，事务提交之后才生效；如果有相应的 trigger，执行的时候将被触发。 truncate、drop 是数据库定义语言(ddl)，操作立即生效，原数据不放到 rollback segment 中，不能回滚，操作不触发 trigger。
+ delete 语句不影响表所占用的 extent，高水线(high watermark)保持原位置不动 drop 语句将表所占用的空间全部释放。 truncate 语句缺省情况下见空间释放到 minextents个 extent，除非使用reuse storage；truncate 会将高水线复位(回到最开始)。
+ 速度，一般来说: drop&amp;gt; truncate &amp;gt; delete
+ 安全性：小心使用 drop 和 truncate，尤其没有备份的时候.否则哭都来不及 使用上,想删除部分数据行用 delete，注意带上where子句. 回滚段要足够大. 想删除表,当然用 drop 想保留表而将所有数据删除，如果和事务无关，用truncate即可。如果和事务有关,或者想触发trigger,还是用delete。 如果是整理表内部的碎片，可以用truncate跟上reuse stroage，再重新导入/插入数据。
+ delete是DML语句,不会自动提交。drop/truncate都是DDL语句,执行后会自动提交。
+ TRUNCATE TABLE 在功能上与不带 WHERE 子句的 DELETE 语句相同：二者均删除表中的全部行。但 TRUNCATE TABLE 比 DELETE 速度快，且使用的系统和事务日志资源少。DELETE 语句每次删除一行，并在事务日志中为所删除的每行记录一项。TRUNCATE TABLE 通过释放存储表数据所用的数据页来删除数据，并且只在事务日志中记录页的释放。
+ TRUNCATE TABLE 删除表中的所有行，但表结构及其列、约束、索引等保持不变。新行标识所用的计数值重置为该列的种子。如果想保留标识计数值，请改用 DELETE。如果要删除表定义及其数据，请使用 DROP TABLE 语句。
+ 对于由 FOREIGN KEY 约束引用的表，不能使用 TRUNCATE TABLE，而应使用不带 WHERE 子句的 DELETE 语句。由于 TRUNCATE TABLE 不记录在日志中，所以它不能激活触发器。
+ TRUNCATE TABLE 不能用于参与了索引视图的表。
+  ###四种生成和解析XML文档的方法详解（介绍&#43;优缺点比较&#43;示例）
+众所周知，现在解析XML的方法越来越多，但主流的方法也就四种，即：DOM、SAX、JDOM和DOM4J
+DOM：在现在的Java JDK里都自带了，在xml-apis.jar包里
+ DOM（Document Object Model)
+DOM是用与平台和语言无关的方式表示XML文档的官方W3C标准。DOM是以层次结构组织的节点或信息片断的集合。这个层次结构允许开发人员在树中寻找特定信息。分析该结构通常需要加载整个文档和构造层次结构，然后才能做任何工作。由于它是基于信息层次的，因而DOM被认为是基于树或基于对象的。
+DOM解析器把XML文档转化为一个包含其内容的树，并可以对树进行遍历。用DOM解析模型的优点是编程容易，开发人员只需要调用建树的指令，然后利用navigation APIs访问所需的树节点来完成任务。可以很容易的添加和修改树中的元素。然而由于使用DOM解析器的时候需要处理整个XML文档，所以对性能和内存的要求比较高，尤其是遇到很大的XML文件的时候。由于它的遍历能力，DOM解析器常用于XML文档需要频繁的改变的服务中。
+  【优点】 ①允许应用程序对数据和结构做出更改。 ②访问是双向的，可以在任何时候在树中上下导航，获取和操作任意部分的数据。 【缺点】 ①通常需要加载整个XML文档来构造层次结构，消耗资源大。
+ SAX（Simple API for XML)  【优势】
+ ①不需要等待所有数据都被处理，分析就能立即开始。 ②只在读取数据时检查数据，不需要保存在内存中。 ③可以在某个条件得到满足时停止解析，不必解析整个文档。 ④效率和性能较高，能解析大于系统内存的文档。  【缺点】
+ ①需要应用程序自己负责TAG的处理逻辑（例如维护父/子关系等），文档越复杂程序就越复杂。 ②单向导航，无法定位文档层次，很难同时访问同一文档的不同部分数据，不支持XPath。   JDOM(Java-based Document Object Model)  JDOM与DOM主要有两方面不同。首先，JDOM仅使用具体类而不使用接口。这在某些方面简化了API，但是也限制了灵活性。第二，API大量使用了Collections类，简化了那些已经熟悉这些类的Java开发者的使用。
+【优点】
+ ①使用具体类而不是接口，简化了DOM的API。 ②大量使用了Java集合类，方便了Java开发人员。  【缺点】
+ ①没有较好的灵活性。 ②性能较差。   DOM4J(Document Object Model for Java)  为支持所有这些功能，DOM4J使用接口和抽象基本类方法。DOM4J大量使用了API中的Collections类，但是在许多情况下，它还提供一些替代方法以允许更好的性能或更直接的编码方法。直接好处是，虽然DOM4J付出了更复杂的API的代价，但是它提供了比JDOM大得多的灵活性。
+【优点】
+ ①大量使用了Java集合类，方便Java开发人员，同时提供一些提高性能的替代方法。 ②支持XPath。 ③有很好的性能。  【缺点】
+ ①大量使用了接口，API较为复杂。   总结  DOM4J性能最好，连Sun的JAXM也在用DOM4J。目前许多开源项目中大量采用DOM4J，例如大名鼎鼎的Hibernate也用DOM4J来读取XML配置文件。如果不考虑可移植性，那就采用DOM4J.
+###进程间的通信方式有哪些，线程间的通信方式有哪些 - 进程间通信方式 1. 无名管道通信
+ 无名管道( pipe )：管道是一种半双工的通信方式，**数据只能单向流动**，而且只能在**具有亲缘关系的进程**间使用。进程的亲缘关系通常是指父子进程关系。 2. 高级管道通信 高级管道(popen)：将另一个程序当做一个新的进程在当前程序进程中启动，则它算是当前程序的子进程，这种方式我们成为高级管道方式。 3. 有名管道通信 有名管道 (named pipe) ： 有名管道也是半双工的通信方式，但是它**允许无亲缘关系进程间的通信**。 4. 消息队列通信 消息队列( message queue ) ： 消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。 5. 信号量通信 信号量( semophore ) ： 信号量是一个计数器，可以用来**控制多个进程对共享资源的访问**。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，**主要作为进程间以及同一进程内不同线程之间的同步手段**。 6. 信号通信 信号 ( sinal ) ： 信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。 7. 共享内存通信 共享内存( shared memory ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号量，配合使用，来实现进程间的同步和通信。 8. 套接字通信 套接字( socket ) ： 套接口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同机器间的进程通信。   线程间通信方式
+ 同步
+这里讲的同步是指多个线程通过synchronized关键字这种方式来实现线程间的通信。
+public class MyObject { synchronized public void methodA() { //do something.... } synchronized public void methodB() { //do some other thing } } public class ThreadA extends Thread { private MyObject object; //省略构造方法 @Override public void run() { super.run(); object.methodA(); } } public class ThreadB extends Thread { private MyObject object; //省略构造方法 @Override public void run() { super.run(); object.methodB(); } } public class Run { public static void main(String[] args) { MyObject object = new MyObject(); //线程A与线程B 持有的是同一个对象:object ThreadA a = new ThreadA(object); ThreadB b = new ThreadB(object); a.start(); b.start(); } }   这种方式，本质上就是“共享内存”式的通信。多个线程需要访问同一个共享变量，谁拿到了锁（获得了访问权限），谁就可以执行。 2. while轮询方式
+ wait/notify机制
+ 管道通信
+管道通信就是使用java.io.PipedInputStream 和 java.io.PipedOutputStream进行通信 ###单核怎么实现多线程
+   ###TCP和UDP的区别
+TCP/IP协议是一个协议簇。里面包括很多协议的。UDP只是其中的一个。之所以命名为TCP/IP协议，因为TCP,IP协议是两个很重要的协议，就用他两命名了。
+TCP/IP协议集包括应用层,传输层，网络层，网络访问层。
+ TCP（Transmission Control Protocol，传输控制协议）  是面向连接的协议，也就是说，在收发数据前(三次握手)，必须和对方建立可靠的连接。一个TCP连接必须要经过三次“对话”才能建立起来，其中的过程非常复杂，只简单的描述下这三次对话的简单过程：主机A向主机B发出连接请求数据包：“我想给你发数据，可以吗？”，这是第一次对话；主机B向主机A发送同意连接和要求同步（同步就是两台主机一个在发送，一个在接收，协调工作）的数据包：“可以，你什么时候发？”，这是第二次对话；主机A再发出一个数据包确认主机B的要求同步：“我现在就发，你接着吧！”，这是第三次对话。三次“对话”的目的是使数据包的发送和接收同步，经过三次“对话”之后，主机A才向主机B正式发送数据。
+ UDP（User Data Protocol，用户数据报协议）  （1） UDP是一个非连接的协议，传输数据之前源端和终端不建立连接，当它想传送时就简单地去抓取来自应用程序的数据，并尽可能快地把它扔到网络上。在发送端，UDP传送数据的速度仅仅是受应用程序生成数据的速度、计算机的能力和传输带宽的限制；在接收端，UDP把每个消息段放在队列中，应用程序每次从队列中读一个消息段。
+（2） 由于传输数据不建立连接，因此也就不需要维护连接状态，包括收发状态等，因此一台服务机可同时向多个客户机传输相同的消息。
+（3） UDP信息包的标题很短，只有8个字节，相对于TCP的20个字节信息包的额外开销很小。
+（4） 吞吐量不受拥挤控制算法的调节，只受应用软件生成数据的速率、传输带宽、源端和终端主机性能的限制。
+（5）UDP使用尽最大努力交付，即不保证可靠交付(可能会丢包)，因此主机不需要维持复杂的链接状态表（这里面有许多参数）。
+（6）UDP是面向报文的。发送方的UDP对应用程序交下来的报文，在添加首部后就向下交付给IP层。既不拆分，也不合并，而是保留这些报文的边界，因此，应用程序需要选择合适的报文大小。
+ 小结TCP与UDP的区别：
+ 基于连接与无连接；
+ 对系统资源的要求（TCP较多，UDP少）；
+ UDP程序结构较简单；
+ 流模式与数据报模式 ；
+ TCP保证数据正确性，UDP可能丢包，TCP保证数据顺序，UDP不保证。
+  应用场景
+在日常生活中，常见使用TCP协议的应用如下： 浏览器，用的HTTP FlashFXP，用的FTP Outlook，用的POP、SMTP Putty，用的Telnet、SSH QQ文件传输
+什么时候应该使用UDP： 当对网络通讯质量要求不高的时候，要求网络通讯速度能尽量的快，这时就可以使用UDP。 比如，日常生活中，常见使用UDP协议的应用如下： QQ语音 QQ视频 TFTP
+  ###数据库设计的三大范式
+ ．第一范式(确保每列保持原子性)
+第一范式是最基本的范式。如果数据库表中的所有字段值都是不可分解的原子值
+ 第二范式(确保表中的每列都和主键相关)
+第二范式在第一范式的基础之上更进一层。第二范式需要确保数据库表中的每一列都和主键相关，而不能只与主键的某一部分相关（主要针对联合主键而言）。也就是说在一个数据库表中，一个表中只能保存一种数据，不可以把多种数据保存在同一张数据库表中。
+ 第三范式(确保每列都和主键列直接相关,而不是间接相关,也就是说非主键列之间没有传递函数依赖关系)
+第三范式需要确保数据表中的每一列数据都和主键直接相关，而不能间接相关
+  </content>
     </entry>
     
      <entry>

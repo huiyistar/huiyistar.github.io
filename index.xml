@@ -6,18 +6,20 @@
     <description>Recent content on 始末</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 20 Aug 2017 00:41:39 +0800</lastBuildDate>
     
 	<atom:link href="https://huiyistar.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Two</title>
-      <link>https://huiyistar.github.io/post/first/</link>
-      <pubDate>Sun, 20 Aug 2017 00:41:39 +0800</pubDate>
+      <title></title>
+      <link>https://huiyistar.github.io/post/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://huiyistar.github.io/post/first/</guid>
-      <description>h1 h2 h3 h4 h5 h6 public class Test{ public static void main(String[] args){ system.out.println(&amp;quot;hello world&amp;quot;); } } 第一章 阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读 阅</description>
+      <guid>https://huiyistar.github.io/post/2/</guid>
+      <description>###描述Cookie和Session的作用，区别各自的应用范围，Session的工作原理
+cookie机制采用的是在客户端保持状态的方案，也是实现Session的一种方式； sessio机制采用的是在服务器端保持状态的方案,session是保存在服务器端的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库或文件中。 许多个性化服务的网站，都是利用Cookie来辨认使用者，以方便送出为使用者送出量身定做的内容。session的典型场景如购物车 Cookie的内容主要包括：名字、值、过期时间、路径和域。路径和域一起构成Cookie的作用范围，若不设置过期时间，则表示这个Cookie的生命期在浏览器会话期间， 关闭浏览器，cookie就消失了。 session机制是一种服务器端的机制，当程序需要为客户端某个请求创建一个session时，服务器会首先检查这个客户端请求是否包含了一个session标识(简称session id) 如果已包含，说明以前已为这个客户端创建了session，服务器就会按照这个session id把这个session检索出来使用；如果不包含，则会为此客户端创建一个session并且生成一个与此session相关联的session id。 session和cookie的区别： 1.session数据保存在服务器，cookie数据保存在客户端 2.session会在一定时间保存在服务器(默认为30分钟)，随着访问增多，会占用服务器的内存， 建议： 可将登录等重要信息存放在session，其他信息如需保留可存放在cookie  ###简述ajax工作原理，怎样实现ajax跨域？
+ajax简单来说是通过XMLHttpRequest对象来向服务器发送异步请求，从服务器获得数据，进行用JavaScript来操作DOM来实现局部页面更新,即客户端不需要等待服务器的响应，从而实现异步请求，局部刷新
+ function sendMessage(va){ //(1)创建xmlhttp对象 var xmlhttp; //判断浏览器的类型,处理兼容性问题 if(window.XMLHttpRequest){ //非IE浏览器创建XMLHttpRequest对象(firefox 、safira、chrome 、IE7+) xmlhttp = new XMLHttpRequest(); }else{ //IE 5\6 xmlhttp = new ActiveObjectX(&amp;quot;Micorsoft.XMLHTTP&amp;quot;); } //(2)发送请求 var url = &amp;quot;/JavaWeb11_ajax/LoginServlet&amp;quot;; /*第一个参数：请求类型 第二个参数：请求服务器地址， 第三个参数：采用同步还是异步的方式请求 true异步*/ xmlhttp.open(&amp;quot;post&amp;quot;,url,true); /*设置请求头*/ xmlhttp.setRequestHeader(&amp;quot;Content-Type&amp;quot;,&amp;quot;application/x-www-form-urlencoded;charset=utf-8&amp;quot;); /*发送请求到服务器，可以传递数据*/ xmlhttp.send(&amp;quot;username=&amp;quot;+va+&amp;quot;&amp;amp;pwd=123&amp;quot;); //(3)接受服务器响应，ajax采用事件的方式，不断监控状态码。当状态码为200的时候。才能处理响应 xmlhttp.onreadystatechange = function(){ //除了判断状态码为200 ，还要判断当前对象的状态==4才表示对象准备就绪。就获取。 if(xmlhttp.status==200 &amp;amp;&amp;amp; xmlhttp.readyState ==4){ //通过ajax提供的方法获取到服务器传递回来的内容,json字符串 var jsonStr = xmlhttp.</description>
     </item>
     
   </channel>

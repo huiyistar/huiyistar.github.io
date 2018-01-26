@@ -106,8 +106,8 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="https://huiyistar.github.io/post/first/" itemprop="url">
-        Two
+        <a class="post-title-link" href="https://huiyistar.github.io/post/2/" itemprop="url">
+        
         </a>
       </h1>
       <div class="post-meta">
@@ -116,45 +116,30 @@
     <i class="fa fa-calendar-o"></i>
 </span>
 <span class="post-meta-item-text">时间：</span>
-<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2017-08-20">
-    2017-08-20
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="0001-01-01">
+    0001-01-01
 </time>
 </span> 
       
-
-  <span class="post-category" >
-  &nbsp; | &nbsp;
-  <span class="post-meta-item-icon">
-    <i class="fa fa-folder-o"></i>
-  </span>
-  <span class="post-meta-item-text">分类：</span>
-  
-    <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-      <a href="https://huiyistar.github.io/categories/test" itemprop="url" rel="index">
-        <span itemprop="name">test</span>
-      </a>
-      &nbsp; 
-    </span>
-  
-</span>
-
-
        <span>
 &nbsp; | &nbsp;
 <span class="post-meta-item-icon">
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">阅读：</span>
-<span class="leancloud-visitors-count">116 字 ~1分钟</span>
+<span class="leancloud-visitors-count">1145 字 ~6分钟</span>
 </span>
       </div>
     </header>
     <div class="post-body" itemprop="articleBody">
-    h1 h2 h3 h4 h5 h6 public class Test{ public static void main(String[] args){ system.out.println(&quot;hello world&quot;); } } 第一章 阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读阅读阅读，你真的是在阅读 阅
+    ###描述Cookie和Session的作用，区别各自的应用范围，Session的工作原理
+cookie机制采用的是在客户端保持状态的方案，也是实现Session的一种方式； sessio机制采用的是在服务器端保持状态的方案,session是保存在服务器端的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库或文件中。 许多个性化服务的网站，都是利用Cookie来辨认使用者，以方便送出为使用者送出量身定做的内容。session的典型场景如购物车 Cookie的内容主要包括：名字、值、过期时间、路径和域。路径和域一起构成Cookie的作用范围，若不设置过期时间，则表示这个Cookie的生命期在浏览器会话期间， 关闭浏览器，cookie就消失了。 session机制是一种服务器端的机制，当程序需要为客户端某个请求创建一个session时，服务器会首先检查这个客户端请求是否包含了一个session标识(简称session id) 如果已包含，说明以前已为这个客户端创建了session，服务器就会按照这个session id把这个session检索出来使用；如果不包含，则会为此客户端创建一个session并且生成一个与此session相关联的session id。 session和cookie的区别： 1.session数据保存在服务器，cookie数据保存在客户端 2.session会在一定时间保存在服务器(默认为30分钟)，随着访问增多，会占用服务器的内存， 建议： 可将登录等重要信息存放在session，其他信息如需保留可存放在cookie  ###简述ajax工作原理，怎样实现ajax跨域？
+ajax简单来说是通过XMLHttpRequest对象来向服务器发送异步请求，从服务器获得数据，进行用JavaScript来操作DOM来实现局部页面更新,即客户端不需要等待服务器的响应，从而实现异步请求，局部刷新
+ function sendMessage(va){ //(1)创建xmlhttp对象 var xmlhttp; //判断浏览器的类型,处理兼容性问题 if(window.XMLHttpRequest){ //非IE浏览器创建XMLHttpRequest对象(firefox 、safira、chrome 、IE7+) xmlhttp = new XMLHttpRequest(); }else{ //IE 5\6 xmlhttp = new ActiveObjectX(&quot;Micorsoft.XMLHTTP&quot;); } //(2)发送请求 var url = &quot;/JavaWeb11_ajax/LoginServlet&quot;; /*第一个参数：请求类型 第二个参数：请求服务器地址， 第三个参数：采用同步还是异步的方式请求 true异步*/ xmlhttp.open(&quot;post&quot;,url,true); /*设置请求头*/ xmlhttp.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded;charset=utf-8&quot;); /*发送请求到服务器，可以传递数据*/ xmlhttp.send(&quot;username=&quot;+va+&quot;&amp;pwd=123&quot;); //(3)接受服务器响应，ajax采用事件的方式，不断监控状态码。当状态码为200的时候。才能处理响应 xmlhttp.onreadystatechange = function(){ //除了判断状态码为200 ，还要判断当前对象的状态==4才表示对象准备就绪。就获取。 if(xmlhttp.status==200 &amp;&amp; xmlhttp.readyState ==4){ //通过ajax提供的方法获取到服务器传递回来的内容,json字符串 var jsonStr = xmlhttp.
     </div>
     
     <div class="post-more-link text-center">
-    <a class="btn" href="https://huiyistar.github.io/post/first/" rel="contents">
+    <a class="btn" href="https://huiyistar.github.io/post/2/" rel="contents">
       阅读全文 &raquo;
     </a>
     </div>
@@ -227,14 +212,14 @@
     </div>
     <div class="site-state-item site-state-categories">    
         <a href="https://huiyistar.github.io/categories/">       
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">0</span>
         <span class="site-state-item-name">分类</span>
         </a>
     </div>
 
     <div class="site-state-item site-state-tags">
         <a href="https://huiyistar.github.io/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">0</span>
         <span class="site-state-item-name">标签</span>
         </a>
     </div>
@@ -283,7 +268,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   <span itemprop="copyrightYear">  &copy; 
-  2009 - 2017</span>
+  2009 - 2018</span>
   <span class="with-love"><i class="fa fa-heart"></i></span>
   <span class="author" itemprop="copyrightHolder">始末</span>
 </div>
